@@ -16,12 +16,11 @@ public class InputManager : MonoBehaviour
         }
         Vector3 forward = cinemachineCamera.transform.forward;
         Vector3 right = cinemachineCamera.transform.right;
+        forward.Normalize();
+        right.Normalize();
 
         forward.y = 0f;
         right.y = 0f;
-
-        forward.Normalize();
-        right.Normalize();
         Vector3 moveDirection = Vector3.zero;
         if (Input.GetKey(KeyCode.W))
         {
@@ -39,7 +38,7 @@ public class InputManager : MonoBehaviour
         {
             moveDirection += right;
         }
-        Vector2 input = new Vector2(moveDirection.x, moveDirection.z).normalized;
-        OnMove?.Invoke(input);
+        moveDirection.Normalize();
+        OnMove?.Invoke(moveDirection);
     }
 }

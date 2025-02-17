@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     }
     void MovePlayer(Vector3 input)  
     {
-        Vector3 moveDirection = new(input.x, 0f, input.y);
-        rb.AddForce(speed * moveDirection, ForceMode.Acceleration);
+        input.y = 0f;
+        rb.AddForce(speed * input);
     }
 }
