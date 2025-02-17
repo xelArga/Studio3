@@ -206,8 +206,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.18244256, y: -0.13676298, z: 0.025635317, w: 0.97332084}
-  m_LocalPosition: {x: 0.7794062, y: 2.4776025, z: -3.901409}
+  m_LocalRotation: {x: 0.081103384, y: -0.08220692, z: 0.006712319, w: 0.9932871}
+  m_LocalPosition: {x: 0.7794062, y: 2.0677228, z: -6.4132423}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -545,6 +545,57 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &952135044
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 952135046}
+  - component: {fileID: 952135045}
+  m_Layer: 0
+  m_Name: InputManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &952135045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 952135044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448fc7811220cda47a15239b69ea0f37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnMove:
+    m_PersistentCalls:
+      m_Calls: []
+  OnSpacePressed:
+    m_PersistentCalls:
+      m_Calls: []
+  cinemachineCamera: {fileID: 1211882014}
+--- !u!4 &952135046
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 952135044}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.385699, y: 1.9177915, z: 6.2294936}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1211882009
 GameObject:
   m_ObjectHideFlags: 0
@@ -675,13 +726,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TargetOffset: {x: 1, y: 1, z: 1}
   TrackerSettings:
-    BindingMode: 4
+    BindingMode: 2
     PositionDamping: {x: 0, y: 0, z: 0}
     AngularDampingMode: 0
     RotationDamping: {x: 1, y: 1, z: 1}
     QuaternionDamping: 1
-  OrbitStyle: 1
-  Radius: 10
+  OrbitStyle: 0
+  Radius: 7
   Orbits:
     Top:
       Radius: 10
@@ -707,7 +758,7 @@ MonoBehaviour:
   VerticalAxis:
     Value: 0
     Center: 0
-    Range: {x: -10, y: 45}
+    Range: {x: -30, y: 20}
     Wrap: 0
     Recentering:
       Enabled: 0
@@ -775,8 +826,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1211882009}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.18244256, y: -0.13676298, z: 0.025635315, w: 0.97332084}
-  m_LocalPosition: {x: 0.7794062, y: 2.4776025, z: -3.901409}
+  m_LocalRotation: {x: 0.081103384, y: -0.08220692, z: 0.006712319, w: 0.9932871}
+  m_LocalPosition: {x: 0.7794062, y: 2.0677228, z: -6.4132423}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -796,7 +847,7 @@ GameObject:
   - component: {fileID: 1529635321}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -905,7 +956,7 @@ GameObject:
   - component: {fileID: 1825800465}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -951,7 +1002,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!136 &1825800466
 CapsuleCollider:
@@ -960,7 +1011,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1825800463}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6e779b4d11e887d4bbf312415a0e1c1e, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -988,8 +1039,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 972cf518f8f94a24d9e0fcb102a0776c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputManager: {fileID: 0}
-  speed: 0
+  inputManager: {fileID: 952135045}
+  speed: 10
+  jumpSpeed: 5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1000,3 +1052,4 @@ SceneRoots:
   - {fileID: 1529635324}
   - {fileID: 1825800464}
   - {fileID: 1211882015}
+  - {fileID: 952135046}
