@@ -14,23 +14,32 @@ public class InputManager : MonoBehaviour
         {
             OnSpacePressed?.Invoke();
         }
-        Vector3 input = Vector2.zero;
+        Vector3 forward = cinemachineCamera.transform.forward;
+        Vector3 right = cinemachineCamera.transform.right;
+
+        forward.y = 0f;
+        right.y = 0f;
+
+        forward.Normalize();
+        right.Normalize();
+        Vector3 moveDirection = Vector3.zero;
         if (Input.GetKey(KeyCode.W))
         {
-            input += cinemachineCamera.transform.forward;
+            moveDirection += forward;
         }
         if (Input.GetKey(KeyCode.A))
         {
-            input += cinemachineCamera.transform.right * -1;
+            moveDirection -= right;
         }
         if (Input.GetKey(KeyCode.S))
         {
-            input += cinemachineCamera.transform.forward * -1;
+            moveDirection -= forward;
         }
         if (Input.GetKey(KeyCode.D))
         {
-            input += cinemachineCamera.transform.right;
+            moveDirection += right;
         }
+        Vector2 input = new Vector2(moveDirection.x, moveDirection.z).normalized;
         OnMove?.Invoke(input);
     }
 }

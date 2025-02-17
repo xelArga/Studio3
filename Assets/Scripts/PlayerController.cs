@@ -1,3 +1,4 @@
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -11,8 +12,9 @@ public class PlayerController : MonoBehaviour
         inputManager.OnMove.AddListener(MovePlayer);
         rb = GetComponent<Rigidbody>();
     }
-    void MovePlayer(Vector3 input)
+    void MovePlayer(Vector3 input)  
     {
-        rb.AddForce(speed * input);
+        Vector3 moveDirection = new(input.x, 0f, input.y);
+        rb.AddForce(speed * moveDirection, ForceMode.Acceleration);
     }
 }
